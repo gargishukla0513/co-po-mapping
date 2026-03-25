@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CO-PO Portal</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* BACKGROUND (SOFT COLLEGE VIBE) */
+body {
+    background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* FLOATING MEMES */
+.memes span {
+    position: absolute;
+    font-size: 35px;
+    opacity: 0.2;
+    animation: float 12s linear infinite;
+}
+
+.memes span:nth-child(1){ left:5%; animation-duration:8s;}
+.memes span:nth-child(2){ left:15%; animation-duration:12s;}
+.memes span:nth-child(3){ left:25%; animation-duration:10s;}
+.memes span:nth-child(4){ left:40%; animation-duration:14s;}
+.memes span:nth-child(5){ left:55%; animation-duration:9s;}
+.memes span:nth-child(6){ left:70%; animation-duration:13s;}
+.memes span:nth-child(7){ left:85%; animation-duration:11s;}
+.memes span:nth-child(8){ left:95%; animation-duration:15s;}
+
+@keyframes float {
+    0% { top: 100%; transform: rotate(0deg);}
+    100% { top: -10%; transform: rotate(360deg);}
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 60px;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(10px);
+}
+
+/* MAIN CONTENT FLEX FIX */
+.main {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 60px;
+}
+
+/* LEFT TEXT */
+.left {
+    width: 40%;
+}
+
+.left h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.left p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* CAROUSEL */
+.carousel {
+    width: 350px;
+    overflow: hidden;
+}
+
+.cards {
+    display: flex;
+    transition: 0.8s;
+}
+
+.card {
+    min-width: 100%;
+    height: 200px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* BUTTONS */
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #6c9cff;
+    color: white;
+    margin: 5px;
+    cursor: pointer;
+}
+
+/* FOOTER FIXED */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(10px);
+}
+</style>
+</head>
+
+<body>
+
+<!-- FLOATING MEMES -->
+<div class="memes">
+    <span>💻</span>
+    <span>📚</span>
+    <span>🧠</span>
+    <span>🎓</span>
+    <span>📊</span>
+    <span>⌨️</span>
+    <span>📝</span>
+    <span>📡</span>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+    <h2>✨ CO-PO Portal</h2>
+    <div>
+        <a href="#">Home</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+    </div>
+</nav>
+
+<!-- MAIN -->
+<div class="main">
+
+    <div class="left">
+        <h1>Welcome to CO-PO System 🎯</h1>
+        <p>
+            Easily manage Course Outcomes and Program Outcomes.
+            Select your subject and start mapping in a modern way.
+        </p>
+
+        <br>
+        <button onclick="location.href='login.html'">Login</button>
+        <button onclick="location.href='register.html'">Register</button>
+    </div>
+
+    <div>
+        <div class="carousel">
+            <div class="cards" id="cards">
+                <div class="card">🤖 Machine Learning</div>
+                <div class="card">🌐 Computer Networks</div>
+                <div class="card">⚙️ Compiler Design</div>
+                <div class="card">📊 Project Management</div>
+            </div>
+        </div>
+
+        <div style="text-align:center; margin-top:15px;">
+            <button onclick="prev()">⬅</button>
+            <button onclick="next()">➡</button>
+        </div>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    © 2026 CO-PO Portal | Designed by 🐻‍❄️
+</footer>
+
+<script>
+let index = 0;
+const total = 4;
+
+function updateSlide() {
+    document.getElementById("cards").style.transform =
+        `translateX(-${index * 100}%)`;
+}
+
+function next() {
+    if (index < total - 1) {
+        index++;
+        updateSlide();
+    }
+}
+
+function prev() {
+    if (index > 0) {
+        index--;
+        updateSlide();
+    }
+}
+</script>
+
+</body>
+</html>
+    
+ 
+
+
